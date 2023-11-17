@@ -1,4 +1,4 @@
-#include <shell.h>
+#include "shell.h"
 
 /**
  * main - shell's main function
@@ -7,7 +7,6 @@
  *
  * Return: depends on the status
  */
-
 int main(int ac, char **argv)
 {
 	char *myline = NULL;
@@ -28,6 +27,7 @@ int main(int ac, char **argv)
 		mycmd = tknsplit(myline);
 		if (!mycmd)
 			continue;
+		stts = _exec(mycmd, argv);
 
 	}
 
