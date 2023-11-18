@@ -11,7 +11,7 @@ int main(int ac, char **argv)
 {
 	char *myline = NULL;
 	char **mycmd = NULL;
-	int stts = 0;
+	int stts = 0, idx = 0;
 	(void) ac;
 
 	while (1)
@@ -23,11 +23,14 @@ int main(int ac, char **argv)
 				write(STDOUT_FILENO, "\n", 1);
 			return (stts);
 		}
+		idx++;
 
 		mycmd = tknsplit(myline);
 		if (!mycmd)
 			continue;
-		stts = _exec(mycmd, argv);
+		if (isbuiltin(mycmd[0]))
+			getbuiltin(mycmd, argv, &stts, idx);
+		stts = _exec(mycmd, argv, idx);
 
 	}
 

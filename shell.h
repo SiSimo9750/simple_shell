@@ -14,10 +14,18 @@
 extern char **environ;
 
 char *readmyline(void);
+char *mygetenv(char *var);
+char *mygetpath(char *mycmd);
 char **tknsplit(char *myline);
-int _exec(char **mycmd, char **argv);
+int _exec(char **mycmd, char **argv, int idx);
 void freemyarr(char **myarr);
-
+void showerror(char *name, char *mycmd, int myindex);
+char *_itoa(int n);
+void str_reverse(char *mystr, int len);
+void getbuiltin(char **mycmd, char **argv, int *stts, int idx );
+int isbuiltin(char *mycmd);
+void quite_shell(char **mycmd, int *stts);
+void show_env(char **mycmd, int *stts);
 
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
