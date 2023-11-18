@@ -65,6 +65,6 @@ void show_env(char **mycmd, int *stts)
 		write(STDOUT_FILENO, "\n", 1);
 	}
 	freemyarr(mycmd);
-	*stts = 0;
+	(*stts) = 0;
 }
 
