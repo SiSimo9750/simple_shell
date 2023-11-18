@@ -30,7 +30,8 @@ int main(int ac, char **argv)
 			continue;
 		if (isbuiltin(mycmd[0]))
 			getbuiltin(mycmd, argv, &stts, idx);
-		stts = _exec(mycmd, argv, idx);
+		else
+			stts = _exec(mycmd, argv, idx);
 
 	}
 
